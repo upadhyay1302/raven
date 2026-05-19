@@ -35,7 +35,7 @@ type Logger interface {
 	Emit(severity Level, msg string, fields ...Fielder) Logger
 
 	// forward is called by child Loggers to pass log events up to the root
-	forward(severity Level, msg string, fields []Fielder, opts []PrinterOption, data ImplData)
+	forward(severity Level, msg string, fields []Fielder, opts []PrinterOption, data LogContext)
 }
 
 // ChildLogger is implemented by any Logger that delegates to a parent
