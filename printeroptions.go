@@ -16,7 +16,7 @@ func OptPalette(p Palette) PrinterOption {
 }
 
 type optPalette struct {
-	ANSIColors ansicolors
+    ANSIColors ansiPalette
 }
 
 func (optPalette) isRavenOption() {}

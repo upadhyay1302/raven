@@ -29,7 +29,7 @@ type Printer interface {
 
 // TextPrinter formats log lines as human-readable text, with optional ANSI colors
 type TextPrinter struct {
-	colors      ansicolors
+	colors      ansiPalette
 	showTime    bool
 	showLevel   bool
 
@@ -54,19 +54,19 @@ type TextPrinter struct {
 func (p *TextPrinter) Configure(opts ...PrinterOption) Printer {
 	for _, opt := range opts {
 		switch o := opt.(type) {
-		case poPalette:
+		case optPalette:           
 			p.colors = o.ANSIColors
-		case poTime:
+		case optShowTime:          
 			p.showTime = o.Visible
-		case poLevel:
+		case optShowLevel:         
 			p.showLevel = o.Visible
-		case poFieldIndent:
+		case optColumnOffset:      
 			p.columnOffset = o.Indent
-		case poMsgLeftFieldsRight:
+		case optMsgThenFields:     
 			p.fieldsOnLeft = false
-		case poFieldsLeftMsgRight:
+		case optFieldsThenMsg:     
 			p.fieldsOnLeft = true
-		case poTransientLineLength:
+		case optMaxLineWidth:      
 			p.maxLineWidth = o.Cols
 		}
 	}
