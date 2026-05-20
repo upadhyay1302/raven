@@ -7,7 +7,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/danbrakeley/ansi"
+	"github.com/upadhyay1302/raven/internal/terminal"
 )
 
 // colorDisabled is set at startup by checking for the NO_COLOR environment variable.
@@ -205,7 +205,7 @@ func (p *TextPrinter) Render(severity Level, overrides []PrinterOption, msg stri
 	}
 
 	if useColor {
-		buf.WriteString(ansi.Reset)
+		buf.WriteString(terminal.Reset)
 	}
 
 	result := buf.String()
@@ -213,7 +213,8 @@ func (p *TextPrinter) Render(severity Level, overrides []PrinterOption, msg stri
 	// crop transient lines to prevent terminal wrapping
 	if severity == Transient && p.maxLineWidth > 0 {
 		if len([]rune(result)) > p.maxLineWidth {
-			result = ansi.CropPreservingANSI(result, p.maxLineWidth)
+			result = terminal.CropPreservingANSI(result, p.maxLineWidth)
+
 		}
 	}
 
