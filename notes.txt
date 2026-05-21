@@ -1,0 +1,9 @@
+CLI commands for GO -
+# check everything compiles
+go build ./...
+
+# run all tests
+go test ./...
+
+# run tests with race condition detection
+go test -race ./...
