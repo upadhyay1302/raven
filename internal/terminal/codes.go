@@ -49,3 +49,22 @@ func CursorUp(n int) string {
     }
     return fmt.Sprintf(csi+"%dA", n)
 }
+
+// EraseToLineEnd erases from the cursor to the end of the current line
+const EraseToLineEnd = csi + "K"
+
+// PrevLine moves the cursor to the start of the line n rows above.
+func PrevLine(n int) string {
+	if n <= 0 {
+		return ""
+	}
+	return fmt.Sprintf(csi+"%dF", n)
+}
+
+// NextLine moves the cursor to the start of the line n rows below.
+func NextLine(n int) string {
+	if n <= 0 {
+		return ""
+	}
+	return fmt.Sprintf(csi+"%dE", n)
+}
