@@ -96,3 +96,13 @@ func Test_findInChain_ReturnsNotFound(t *testing.T) {
 		t.Error("expected findInChain to return false for missing interface")
 	}
 }
+
+// TODO: once unbuffered.go is implemented
+// func Test_New_Plain(t *testing.T) { ... }
+// func Test_New_JSON(t *testing.T)  { ... }
+// func Test_New_Auto(t *testing.T)  { ... }
+
+// TODO: once customizer.go is implemented
+// func Test_WithFields(t *testing.T)  { ... }
+// func Test_WithOptions(t *testing.T) { ... }
+// func Test_WithContext(t *testing.T) { ... }
