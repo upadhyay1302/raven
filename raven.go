@@ -16,7 +16,7 @@ const (
 	Auto Style = iota
 
 	// Unbuffered includes colors but no anchored lines and no buffering
-	Unbuffered
+	Direct
 
 	// Plain outputs plain text with timestamps but no colors or anchoring
 	Plain
@@ -54,8 +54,8 @@ func New(style Style, opts ...PrinterOption) RootLogger {
 			columnOffset: 20,
 		}
 		return NewBuffered(os.Stdout, isTerminal, prn.Configure(opts...))
-
-	case Unbuffered:
+	
+	case Direct:         
 		prn := &TextPrinter{
 			colors:       DefaultPalette.toANSI(),
 			showTime:     true,
@@ -63,7 +63,7 @@ func New(style Style, opts ...PrinterOption) RootLogger {
 			columnOffset: 20,
 		}
 		return NewUnbuffered(os.Stdout, prn.Configure(opts...))
-
+	
 	case Plain:
 		prn := &TextPrinter{
 			showTime:     true,
@@ -71,7 +71,7 @@ func New(style Style, opts ...PrinterOption) RootLogger {
 			columnOffset: 20,
 		}
 		return NewUnbuffered(os.Stdout, prn.Configure(opts...))
-
+	
 	case JSON:
 		return NewUnbuffered(os.Stdout, &JSONPrinter{})
 	}
