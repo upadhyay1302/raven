@@ -7,3 +7,11 @@ go test ./...
 
 # run tests with race condition detection
 go test -race ./...
+
+# if output of running test is 
+ok      github.com/upadhyay1302/raven   (cached)
+ok      github.com/upadhyay1302/raven/internal/terminal (cached)
+# then all good 
+
+# TODO
+# Complete all backlog of unit testing 
