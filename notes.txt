@@ -13,5 +13,16 @@ ok      github.com/upadhyay1302/raven   (cached)
 ok      github.com/upadhyay1302/raven/internal/terminal (cached)
 # then all good 
 
+
+# run all benchmarks
+go test -bench=. -benchmem ./...
+
+# run just one benchmark
+go test -bench=Benchmark_UnbufferedJSON -benchmem ./...
+
+# compare buffered vs unbuffered
+go test -bench=Benchmark_Buffered -benchmem ./...
+go test -bench=Benchmark_Unbuffered -benchmem ./...
+
 # TODO
 # Complete all backlog of unit testing
