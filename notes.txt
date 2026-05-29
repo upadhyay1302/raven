@@ -24,5 +24,11 @@ go test -bench=Benchmark_UnbufferedJSON -benchmem ./...
 go test -bench=Benchmark_Buffered -benchmem ./...
 go test -bench=Benchmark_Unbuffered -benchmem ./...
 
+# Running cmd
+go run ./cmd/demo/ --json
+go run ./cmd/demo/ --verbose
+go run ./cmd/demo/ --notime --nolevel
+go run ./cmd/demo/ --swap
+
 # TODO
 # Complete all backlog of unit testing
