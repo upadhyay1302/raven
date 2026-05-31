@@ -1,26 +1,5 @@
-2026.05.28-21:32:18 [inf] Raven Demo App
-2026.05.28-21:32:18 [inf]   --json :: output structured JSON
-2026.05.28-21:32:18 [inf]   --nolevel :: do not include level label (ignored with -json)
-2026.05.28-21:32:18 [inf]   --notime :: do not include timestamps (ignored with -json)
-2026.05.28-21:32:18 [inf]   --swap :: swap message and fields in output (ignored with -json)
-2026.05.28-21:32:18 [inf]   --verbose :: drop threshold from info to verbose
-2026.05.28-21:32:18 [inf] os.Args                                 arg0=demo
-2026.05.28-21:32:18 [~~~] transient line
-2026.05.28-21:32:18 [dbg] verbose line
-2026.05.28-21:32:18 [inf] info line
-2026.05.28-21:32:18 [WRN] warning line
-2026.05.28-21:32:18 [ERR] error line
-2026.05.28-21:32:18 [inf] spawning worker threads                 count=5
-2026.05.28-21:32:19 [inf] still running...
-2026.05.28-21:32:20 [inf] yup, still running...
-2026.05.28-21:32:20 [WRN] something happened on the main thread
-2026.05.28-21:32:21 [inf] main thread checking in
-2026.05.28-21:32:22 [WRN] encountered a problem, retrying         thread=3 percent=50
-2026.05.28-21:32:22 [WRN] encountered a problem, retrying         thread=2 percent=50
-2026.05.28-21:32:24 [inf] download complete                       thread=4
-2026.05.28-21:32:25 [inf] download complete                       thread=1
-2026.05.28-21:32:26 [ERR] main thread encountered an error
-2026.05.28-21:32:26 [inf] download complete                       thread=0
-2026.05.28-21:32:28 [inf] download complete                       thread=2
-2026.05.28-21:32:28 [inf] download complete                       thread=3
-2026.05.28-21:32:28 [inf] all done!
+2026.05.31-11:03:29 [inf] spawning worker threads       count=3
+2026.05.31-11:03:31 [inf] waited one second...
+2026.05.31-11:03:32 [WRN] waited two seconds...
+2026.05.31-11:03:33 [ERR] bored of waiting
+2026.05.31-11:03:36 [inf] all threads done!
