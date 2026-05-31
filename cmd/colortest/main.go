@@ -2,12 +2,19 @@ package main
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/upadhyay1302/raven"
 	"github.com/upadhyay1302/raven/internal/terminal"
 )
 
 func main() {
+	if !raven.HasTerminal(os.Stdout) {
+		fmt.Println("no terminal detected — colors disabled")
+		fmt.Println("run this directly in a terminal to see colors")
+		return
+	}
+
 	// --- Raw color swatches ---
 	fmt.Println("=== Available Colors ===")
 	fmt.Println(terminal.FgBlack + "FgBlack" + terminal.Reset)
@@ -27,7 +34,7 @@ func main() {
 	fmt.Println(terminal.FgDarkCyan + "FgDarkCyan" + terminal.Reset)
 	fmt.Println(terminal.FgCyan + "FgCyan" + terminal.Reset)
 
-	// --- Live logger demos using each palette ---
+	// --- Live logger demos using each built-in palette ---
 	fmt.Println("\n=== Default Palette ===")
 	showPalette(raven.DefaultPalette)
 
@@ -37,7 +44,8 @@ func main() {
 	fmt.Println("\n=== Bold Palette ===")
 	showPalette(raven.BoldPalette)
 
-	fmt.Println("\n=== Custom Palette ===")
+	// --- Custom palette using WithLevel builder ---
+	fmt.Println("\n=== Custom Palette (error=magenta, warning=cyan) ===")
 	custom := raven.DefaultPalette.
 		WithLevel(raven.Error, raven.Magenta, raven.DarkMagenta).
 		WithLevel(raven.Warning, raven.Cyan, raven.DarkCyan)
