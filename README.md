@@ -3,7 +3,6 @@
 A structured logging library for Go. Supports colored terminal output,
 JSON formatting, live progress bars, and concurrent use out of the box.
 
-Inspired by [frog](https://github.com/danbrakeley/frog), written from scratch.
 
 ## Anchored Lines
 
